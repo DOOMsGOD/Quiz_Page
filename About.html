@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body
+            {
+                background-color: beige;
+                font-family: Arial, sans-serif;
+            }
+            .container
+            {
+                max-width: 900px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: gray;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            h1
+            {
+                text-align: center;
+                color: #333;
+            }
+            .about-section 
+            {
+                margin-top: 40px;
+            }
+            .about-section h3 
+            {
+                color: blanchedalmond;
+            }
+            .about-section p 
+            {
+                line-height: 1.6;
+                color: white;
+            }
+            .team-section 
+            {
+                margin-top: 50px;
+                text-align: center;
+            }
+            .team-member 
+            {
+                display: inline-block;
+                margin: 20px;
+                text-align: center;
+            }
+            .team-member img 
+            {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 3px solid #007bff;
+            }
+            .team-member h5 
+            {
+                margin-top: 10px;
+                color: #007bff;
+            }
+            .team-member p 
+            {
+                color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg" style="background-color: burlywood;">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">Quizium</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="Main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Creation.html">Create</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Exist.html">Existing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>About Us</h1>
+            <!-- About Section -->
+            <div class="about-section">
+                <h3>Our Mission</h3>
+                <p>
+                    We aim to provide engaging and informative quizzes for learners across various subjects. Our platform makes learning fun and interactive by offering quizzes on a range of topics. We are committed to helping users enhance their knowledge while enjoying the process.
+                </p>
+            </div>
+            <!-- History Section -->
+            <div class="about-section">
+                <h3>Our History</h3>
+                <p>
+                    Founded in 2024, our company started with the goal of creating a space where users could test their knowledge and discover new facts. Over the years, we’ve expanded our quiz offerings, reaching thousands of users worldwide, and constantly improving our features based on feedback and user preferences.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

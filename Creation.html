@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Quiz</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body 
+            {
+                background-color: beige;
+                font-family: Arial, sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            .container 
+            {
+                max-width: 600px;
+                margin: 20px auto;
+                background: gray;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            h1 
+            {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .form-control 
+            {
+                margin-bottom: 15px;
+            }
+            .question-section 
+            {
+                margin-bottom: 20px;
+            }
+            .btn-add-question 
+            {
+                display: block;
+                background-color: bisque;
+                color: black;
+            margin: 0 auto 20px auto;
+            }
+            .btn-submit 
+            {
+                display: block;
+                background-color: bisque;
+                color: black;
+                margin: 0 auto;
+            }
+            .navbar 
+            {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .navbar-nav .nav-link 
+            {
+                color: white !important;
+            }
+            .navbar-toggler-icon 
+            {
+                background-color: white;
+            }
+            main 
+            {
+                padding-top: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg" style="background-color: burlywood;">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">Quizium</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="Main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="About.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Create</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Exist.html">Existing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="container">
+                <h1>Create a Quiz</h1>
+                <form id="quizForm">
+                    <div class="mb-3">
+                        <label for="quizName" class="form-label">Quiz Name:</label>
+                        <input type="text" id="quizName" name="quizName" class="form-control" placeholder="Enter quiz name" required>
+                    </div>
+                    <div id="questionsContainer">
+                        <div class="question-section">
+                            <label for="question1">Question 1:</label>
+                            <input type="text" id="question1" name="question1" class="form-control" placeholder="Enter your question" required>
+                            <label>Options:</label>
+                            <input type="text" name="option1-1" class="form-control" placeholder="Option 1" required>
+                            <input type="text" name="option1-2" class="form-control" placeholder="Option 2" required>
+                            <input type="text" name="option1-3" class="form-control" placeholder="Option 3" required>
+                            <input type="text" name="option1-4" class="form-control" placeholder="Option 4" required>
+                            <label for="correctAnswer1">Correct Answer:</label>
+                            <select id="correctAnswer1" name="correctAnswer1" class="form-select" required>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="4">Option 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" id="addQuestion" class="btn btn-primary btn-add-question">Add Another Question</button>
+                    <button type="submit" class="btn btn-success btn-submit">Submit Quiz</button>
+                </form>
+            </div>
+        </main>
+        <script>
+            let questionCount = 1;
+            document.getElementById('addQuestion').addEventListener('click', function () {
+                questionCount++;
+                const questionSection = document.createElement('div');
+                questionSection.className = 'question-section';
+                questionSection.innerHTML = `
+                    <label for="question${questionCount}">Question ${questionCount}:</label>
+                    <input type="text" id="question${questionCount}" name="question${questionCount}" class="form-control" placeholder="Enter your question" required>
+            
+                    <label>Options:</label>
+                    <input type="text" name="option${questionCount}-1" class="form-control" placeholder="Option 1" required>
+                    <input type="text" name="option${questionCount}-2" class="form-control" placeholder="Option 2" required>
+                    <input type="text" name="option${questionCount}-3" class="form-control" placeholder="Option 3" required>
+                    <input type="text" name="option${questionCount}-4" class="form-control" placeholder="Option 4" required>
+            
+                    <label for="correctAnswer${questionCount}">Correct Answer:</label>
+                    <select id="correctAnswer${questionCount}" name="correctAnswer${questionCount}" class="form-select" required>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </select>
+                `;
+                document.getElementById('questionsContainer').appendChild(questionSection);
+            });
+            document.getElementById('quizForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const quizName = document.getElementById('quizName').value;
+                const questions = [];
+                for (let i = 1; i <= questionCount; i++) {
+                    const question = document.getElementById(`question${i}`).value;
+                    const options = [
+                        document.querySelector(`[name="option${i}-1"]`).value,
+                        document.querySelector(`[name="option${i}-2"]`).value,
+                        document.querySelector(`[name="option${i}-3"]`).value,
+                        document.querySelector(`[name="option${i}-4"]`).value,
+                    ];
+                    const correctAnswerIndex = document.getElementById(`correctAnswer${i}`).value;
+                    questions.push({question,options, answer: options[correctAnswerIndex - 1],});
+                }
+                const storedQuizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
+                storedQuizzes.push({id: Date.now(),name: quizName,questions,});
+                localStorage.setItem('quizzes', JSON.stringify(storedQuizzes));            
+                alert('Quiz created successfully!');
+                window.location.href = 'Exist.html';
+            });
+        </script>
+    </body>
+</html>
